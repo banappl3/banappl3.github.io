@@ -1,0 +1,245 @@
+---
+layout: post
+title: Problemlösen mit Algorithmen und Datenstrukturen
+date: 2020-02-01
+last_modified_at: 2023-02-11
+cover_image: 2021-05-03-feature.jpg
+author: Yongguang Lin
+categories: solving problems
+excerpt_separator: <!--more-->
+---
+
+> Photo by [Levi Stute](https://unsplash.com/@levi_stute_cinematography).
+
+Die Art und Weise, wie wir über das Programmieren denken, hat sich in den Jahren seit den ersten elektronischen Computern, die Verbindungskabel und Schalter benötigten, um Anweisungen von Menschen an Maschinen zu übermitteln, stark verändert. Wie in vielen anderen Bereichen der Gesellschaft bieten die Veränderungen in der Computertechnologie auch den Informatikern eine wachsende Anzahl von Werkzeugen und Plattformen, auf denen sie ihr Handwerk ausüben können. Fortschritte wie schnellere Prozessoren, Hochgeschwindigkeitsnetzwerke und große Speicherkapazitäten haben eine Spirale der Komplexität geschaffen, durch die sich IT Experte bewegen müssen. Bei all dieser rasanten Entwicklung sind einige Grundprinzipien konstant geblieben. Die Informatik befasst sich mit dem Einsatz von Computern zur Lösung von Problemen. Sie haben zweifellos viel Zeit damit verbracht, die Grundlagen des Problemlösens zu erlernen, und sind hoffentlich zuversichtlich, dass Sie in der Lage sind, eine Problemstellung zu erfassen und eine Lösung zu entwickeln. Sie haben auch gelernt, dass das Schreiben von Computerprogrammen oft schwierig ist. Die Komplexität von großen Problemen und die entsprechende Komplexität der Lösungen können dazu führen, dass die grundlegenden Ideen im Zusammenhang mit dem Problemlösungsprozess.
+
+<!--more-->
+
+In diesem Artikel werden zwei wichtige Bereiche für den Rest des Textes hervorgehoben. 
+
+  - Erstens wird der Rahmen erläutert, in den sich die Informatik und das Studium von Algorithmen und Datenstrukturen einfügen müssen, insbesondere die Gründe, warum wir diese Themen studieren müssen und wie das Verständnis dieser Themen uns hilft, bessere Problemlöser zu werden. 
+
+  - Zweitens geben wir einen Überblick über die Programmiersprache Python. Obwohl wir keine detaillierte, erschöpfende Referenz bieten können, werden wir Beispiele und Erklärungen für die grundlegenden Konstrukte und Ideen geben, die in den restlichen Artikeln vorkommen werden.
+
+# Datentypen und Datenstrukturen
+Alle Daten im Computer werden als Zeichenketten aus binären Ziffern dargestellt. Um diesen Zeichenfolgen eine Bedeutung zu geben, brauchen wir Datentypen. Datentypen bieten eine Interpretation für diese binären Daten, so dass wir über die Daten in Begriffen nachdenken können, die in Bezug auf das zu lösende Problem Sinn machen. Grundsätzlich wird zwischen primitiven und komplexen Datentypen unterschieden. Die primitiven Datentypen liefern die Bausteine für die Entwicklung von Algorithmen, wogegen die komplexen Datentypen (Datenstrukturen) als Methode zur Problemlösung fungieren kann.
+
+Insgesamt gibt es acht primitive Datentypen. Beispiele hierfür sind Integer, Boolean, Double, Char. Beispiele für komplexe Datentypen sind Klassen, Bäume, Listen und Dictionary, auf die wir später darauf eingehen.
+
+## Liste
+Eine Liste ist eine Sammlung von Elementen, bei der jedes Element eine relative Position zu den anderen einnimmt. Genauer gesagt, bezeichnen wir diese Art von Liste als ungeordnete Liste. Die Liste kann ein erstes Element, ein zweites Element, ein drittes Element und so weiter enthalten. Wir können uns auch auf den Anfang der Liste (das erste Element) oder das Ende der Liste (das letzte Element) beziehen. Der Einfachheit halber gehen wir davon aus, dass Listen keine doppelten Einträge (Redundanz) enthalten können.
+
+Zum Beispiel könnte die Sammlung der ganzen Zahlen 52, 28, 95, 19, 79 und 30 eine einfache ungeordnete Liste von Prüfungsergebnissen darstellen. Beachten Sie, dass wir sie als kommagetrennte Werte geschrieben haben, eine übliche Art, die Listenstruktur darzustellen. Natürlich würde Python diese Liste wie folgt darstellen: 
+```python
+[52, 28, 95, 19, 79, 30]
+```
+# Algorithmen als Problemlösungsmethode
+Algorithmen beschreiben die Lösung eines Problems in Form der Daten, die zur Darstellung des Problemfall zu repräsentieren, und die Menge der Schritte, die notwendig sind, um das beabsichtigte Ergebnis zu erzielen. 
+
+Es ist üblich, Algorithmen miteinander zu vergleichen. Denn oft wird eine interessante Frage gestellt: Wenn zwei Algorithmen das gleiche Problem lösen, aber unterschiedlich aussehen, ist dann der eine Algorithmus besser als der andere?
+
+> ### Viele Wege führen nach Rom.
+
+Mit dieser Redewendung will man sagen, dass es mehrere Möglichkeiten oder Wege gibt, zu einem gewünschten Ziel zu kommen. Und genauso ist es bei Algorithmen. Über die Vergleichbarkeit und Laufzeit von Algorithmen können Sie [hier](https://de.wikipedia.org/wiki/Komplexit%C3%A4tstheorie) weiterlesen.
+
+## Problemlösen mit Rekursion
+
+Rekursion ist eine Methode (Algorithmus) zur Lösung von Problemen, bei der ein Problem in immer kleinere Unterprobleme zerlegt wird, bis das Problem so klein ist, dass es trivial gelöst werden kann (Divide-and-Conquer-Methode).
+
+Normalerweise beinhaltet die Rekursion eine Funktion, die sich selbst aufruft. Auch wenn es auf den ersten Blick nicht viel erscheint, ermöglicht es uns, elegante Lösungen für Probleme zu schreiben, die sonst sehr schwer zu programmieren wären. Ein bekanntes Beispiel für elegante Lösung mittels Rekursion sind die Türme von Hanoi.
+
+> Isaac Asimov, ein russisch-amerikanischer Bürger, ist einer der weltweit berühmtesten Schriftsteller der Science Fiction. Seine Werke erweitern den Lebensraum der Menschheit literarisch ins Universum. In seinen Romanen und Erzählungen widmete er sich vor allem dem Verhältnis zwischen Mensch und Roboter.
+
+Damit die Algorithmen korrekt funktionieren und terminieren, müssen diese bestimmte Regel folgen. Wie die [Roboter von Asimov](https://www.planet-wissen.de/technik/computer_und_roboter/roboter_mechanische_helfer/pwieisaacasimov100.html) (Asimovs Robotergesetze) müssen alle rekursiven Algorithmen drei wichtigen Gesetzen gehorchen:
+
+  1. Ein rekursiver Algorithmus muss einen Basisfall haben.
+  2. Ein rekursiver Algorithmus muss seinen Zustand ändern und sich in Richtung des Basisfalls bewegen.
+  3. Ein rekursiver Algorithmus muss sich selbst aufrufen, rekursiv.
+
+Verwendung von Rekursion: 
+
+  - Berechne die Summe aus einer Liste von Zahlen rekursiv, z.B. [52, 28, 95, 19, 79, 30].
+  ```python
+  def sum(lst):
+    '''
+    lst {list}: a list of numbers
+    return: the sum of the numbers
+    '''
+    if len(lst) == 0: 
+      return 0
+    elif len(lst) == 1:   # Basisfall
+      return lst[0]
+    else:
+      return lst[0] + sum(lst[1:])  # Rekursiver Aufruf
+  ```
+
+  - Berechnung von der n-ten Fibonacci-Zahl (Goldener Schnitt)
+  ```python
+  def factorial(n):
+    '''
+    n {integer}: a number
+    return: the factorial of the number n
+    '''
+    if n == 0:
+        return 1
+    else:
+        return n * factorial(n-1)   # Rekursiver Aufruf
+  ```
+
+  - Visualisierung der Rekursion unter Verwendung von Python’s turtle Grafiken
+
+  - Sierpinski-Dreieck
+
+  - Türme von Hanoi (Komplexes rekursives Problem)
+
+## Problemlösen mit Klassen
+
+sdfdsf
+
+
+# Sortier- und Suchalgorithmen
+Wir werden uns nun einigen der häufigsten Probleme zuwenden, die bei der Datenverarbeitung auftreten, nämlich dem Suchen und Sortieren. In diesem Abschnitt werden wir uns mit der Suche beschäftigen. Auf das Sortieren werden wir später zurückkommen. Suchen ist der algorithmische Prozess des Auffindens eines bestimmten Elements in einer Sammlung von Elementen. Eine Suche beantwortet in der Regel die Frage, ob das Element vorhanden ist, entweder mit Wahr oder Falsch. Gelegentlich kann sie so modifiziert werden, dass sie zurückgibt, wo das Element gefunden wurde. Für unsere Zwecke wollen wir uns hier nur mit der Frage der Zugehörigkeit beschäftigen.
+
+## Die sequentielle Suche
+
+Wenn Datenelemente in einer Sammlung, z. B. in einer Liste, gespeichert werden, spricht man von einer linearen oder sequentielle Beziehung. Jedes Datenelement wird an einer Position relativ zu den anderen gespeichert. In Python-Listen sind diese relativen Positionen die Indexwerte der einzelnen Elemente. Da diese Indexwerte geordnet sind, ist es möglich, sie nacheinander aufzurufen. Aus diesem Vorgang ergibt sich unsere erste Suchtechnik, die sequentielle Suche.
+
+## Die binäre Suche
+
+Die geordnete Liste lässt sich noch besser nutzen, wenn wir unsere Vergleiche geschickt einsetzen. Wenn wir bei der sequentiellen Suche mit dem ersten Element vergleichen, gibt es höchstens 𝑛 - 1 weitere Elemente, die wir durchsehen müssen, wenn das erste Element nicht das ist, wonach wir suchen. 
+
+Anstatt die Liste der Reihe zudurchsuchen, beginnt eine binäre Suche mit der Untersuchung des mittleren Eintrags. Wenn dieser Eintrag der gesuchte ist, ist die Suche beendet. Wenn es nicht der richtige Eintrag ist, können wir die geordnete Natur der Liste nutzen, um die Hälfte der verbleibenden Einträge zu eliminieren. Wenn das gesuchte Element größer ist als der mittlere Eintrag, wissen wir, dass die gesamte untere Hälfte der Liste und auch der mittlere Eintrag von der weiteren Betrachtung ausgeschlossen werden kann. Wenn das Element in der Liste enthalten ist, muss es sich in der oberen Hälfte befinden.
+
+---
+## Sortieren
+Beim Sortieren werden die Elemente einer Sammlung in eine bestimmte Reihenfolge gebracht. Ein Beispiel, eine Liste von Wörtern kann alphabetisch oder nach Länge sortiert werden. Eine Liste von Städten kann sortiert werden nach Bevölkerung, nach Gebiet oder nach Postleitzahl sortiert werden. Wir haben bereits eine Reihe von Algorithmen gesehen, die von einer sortierten Liste profitieren konnten (vgl. Binäre Suche). Folgende Sortieralgorithmen gibt es:
+
+  - Bubble Sort 
+  - Selection Sort 
+  - Insertion Sort 
+  - Shell Sort 
+  - Merge Sort 
+  - Quick Sort 
+
+Im nächsten Schritt betrachten wir nun die Sortieralgorithmen einzeln und gehen auf die Implementierung der Algorithmen in Python ein und erklären dabei auch wie sie funktionieren.
+
+---
+
+#### Bubble Sort 
+ist ein einfacher Sortieralgorithmus, der die Liste wiederholt durchläuft, benachbarte Elemente vergleicht und sie vertauscht, wenn sie in der falschen Reihenfolge sind. Der Algorithmus wiederholt diesen Vorgang, bis die Liste sortiert ist.
+
+```python
+def bubble_sort(arr):
+    '''
+    arr {list}: a list of numbers
+    return: a sorted list of numbers
+    '''
+    n = len(arr)
+    for i in range(n):
+        for j in range(0, n-i-1):
+            if arr[j] > arr[j+1]:
+                arr[j], arr[j+1] = arr[j+1], arr[j]
+    return arr
+```
+#### Erklärung:
+In diesem Beispiel nimmt die Funktion bubble_sort ein Array arr als Eingabe, sortiert es mit dem Bubble-Sort-Algorithmus und gibt das sortierte Array zurück. Die äußere Schleife wird n-mal durchlaufen, wobei n die Länge des Arrays ist, und die innere Schleife vergleicht jedes Paar benachbarter Elemente und tauscht sie aus, wenn sie in der falschen Reihenfolge sind. Dieser Vorgang wird n-mal wiederholt, so dass alle Elemente verglichen und sortiert sind.
+
+---
+
+#### Selection Sort 
+ist ein einfacher Sortieralgorithmus, bei dem wiederholt das kleinste Element aus dem unsortierten Teil der Liste gesucht und mit dem ersten unsortierten Element vertauscht wird.
+
+```python
+def selection_sort(arr):
+    '''
+    arr {list}: a list of numbers
+    return: a sorted list of numbers
+    '''
+    for i in range(len(arr)):
+        min_index = i
+        for j in range(i+1, len(arr)):
+            if arr[j] < arr[min_index]:
+                min_index = j
+        arr[i], arr[min_index] = arr[min_index], arr[i]
+    return arr
+```
+#### Erklärung:
+In diesem Beispiel durchläuft die äußere Schleife die gesamte Liste, während die innere Schleife das kleinste Element im unsortierten Teil der Liste findet. Das gefundene kleinste Element wird dann mit dem ersten unsortierten Element vertauscht, wodurch das kleinste Element an seine endgültige Position in der sortierten Liste verschoben wird. Der Vorgang wird für den Rest des unsortierten Teils der Liste wiederholt, bis alle Elemente sortiert sind.
+
+---
+
+#### Insertion Sort 
+
+```python
+def bubble_sort(arr):
+    '''
+    arr {list}: a list of numbers
+    return: a sorted list of numbers
+    '''
+    n = len(arr)
+    for i in range(n):
+        for j in range(0, n-i-1):
+            if arr[j] > arr[j+1]:
+                arr[j], arr[j+1] = arr[j+1], arr[j]
+    return arr
+```
+#### Erklärung:
+In diesem Beispiel nimmt die Funktion bubble_sort ein Array arr als Eingabe, sortiert es mit dem Bubble-Sort-Algorithmus und gibt das sortierte Array zurück. Die äußere Schleife wird n-mal durchlaufen, wobei n die Länge des Arrays ist, und die innere Schleife vergleicht jedes Paar benachbarter Elemente und tauscht sie aus, wenn sie in der falschen Reihenfolge sind. Dieser Vorgang wird n-mal wiederholt, so dass alle Elemente verglichen und sortiert sind.
+
+---
+
+#### Shell Sort 
+
+```python
+def bubble_sort(arr):
+    '''
+    arr {list}: a list of numbers
+    return: a sorted list of numbers
+    '''
+    n = len(arr)
+    for i in range(n):
+        for j in range(0, n-i-1):
+            if arr[j] > arr[j+1]:
+                arr[j], arr[j+1] = arr[j+1], arr[j]
+    return arr
+```
+#### Erklärung:
+In diesem Beispiel nimmt die Funktion bubble_sort ein Array arr als Eingabe, sortiert es mit dem Bubble-Sort-Algorithmus und gibt das sortierte Array zurück. Die äußere Schleife wird n-mal durchlaufen, wobei n die Länge des Arrays ist, und die innere Schleife vergleicht jedes Paar benachbarter Elemente und tauscht sie aus, wenn sie in der falschen Reihenfolge sind. Dieser Vorgang wird n-mal wiederholt, so dass alle Elemente verglichen und sortiert sind.
+
+---
+
+#### Merge Sort 
+```python
+def bubble_sort(arr):
+    '''
+    arr {list}: a list of numbers
+    return: a sorted list of numbers
+    '''
+    n = len(arr)
+    for i in range(n):
+        for j in range(0, n-i-1):
+            if arr[j] > arr[j+1]:
+                arr[j], arr[j+1] = arr[j+1], arr[j]
+    return arr
+```
+#### Erklärung:
+In diesem Beispiel nimmt die Funktion bubble_sort ein Array arr als Eingabe, sortiert es mit dem Bubble-Sort-Algorithmus und gibt das sortierte Array zurück. Die äußere Schleife wird n-mal durchlaufen, wobei n die Länge des Arrays ist, und die innere Schleife vergleicht jedes Paar benachbarter Elemente und tauscht sie aus, wenn sie in der falschen Reihenfolge sind. Dieser Vorgang wird n-mal wiederholt, so dass alle Elemente verglichen und sortiert sind.
+
+---
+
+#### Quick Sort 
+```python
+def bubble_sort(arr):
+    '''
+    arr {list}: a list of numbers
+    return: a sorted list of numbers
+    '''
+    n = len(arr)
+    for i in range(n):
+        for j in range(0, n-i-1):
+            if arr[j] > arr[j+1]:
+                arr[j], arr[j+1] = arr[j+1], arr[j]
+    return arr
+```
+#### Erklärung:
+In diesem Beispiel nimmt die Funktion bubble_sort ein Array arr als Eingabe, sortiert es mit dem Bubble-Sort-Algorithmus und gibt das sortierte Array zurück. Die äußere Schleife wird n-mal durchlaufen, wobei n die Länge des Arrays ist, und die innere Schleife vergleicht jedes Paar benachbarter Elemente und tauscht sie aus, wenn sie in der falschen Reihenfolge sind. Dieser Vorgang wird n-mal wiederholt, so dass alle Elemente verglichen und sortiert sind.
