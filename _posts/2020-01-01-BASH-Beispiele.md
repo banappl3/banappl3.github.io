@@ -3,7 +3,7 @@ layout: post
 title: Bash Script Beispiele
 date: 2020-01-01
 last_modified_at: 2023-02-10
-cover_image: 2022-01-04-feature.png
+#cover_image: 2022-01-04-feature.png
 author: Yongguang Lin
 categories: bash
 excerpt_separator: <!--more-->

@@ -1,0 +1,60 @@
+---
+layout: post
+title: Eine Einführung in Datenbank
+date: 2020-01-10
+cover_image: 2021-04-20-feature.jpg
+author: Yongguang Lin
+categories: database sql
+excerpt_separator: <!--more-->
+last_modified_at: 2023-02-10
+---
+
+## Datenbank
+Eine Datenbank besteht aus zwei Teilen: der Verwaltungssoftware, genannt `Datenbankmanagementsystem (DBMS)`, und der Menge der zu verwaltenden Daten, genannt `Datenbasis`.
+Die Verwaltungssoftware organisiert intern die strukturierte Speicherung der Daten. Sie steuert alle lesenden und schreibenden Zugriffe auf die Datenbank. Um die Daten abzufragen und zu verwalten, bietet ein Datenbanksystem eine Datenbanksprache an.
+
+<!--more-->
+Eine Datenbank stellt als Schnittstelle eine Datenbanksprache zur Verfügung. Diese Sprache kann für folgende Zwecke verwendet werden:
+- Datenabfrage (DQL)
+- Datenmanipulation (DML)
+- Datenbankverwaltung und Definition von Datenstrukturen (DDL)
+- Berechtigungssteuerung (DCL)
+
+Bei relationalen DBMS sind diese Kategorien in der Sprache `SQL` zusammengefasst, wogegen in bei dokumentenorientierten DBMS `NoSQL` verwendet wird.
+
+#### Was ist eine Dokumentdatenbank?
+Eine Dokumentdatenbank ist eine nicht-relationale Datenbank. Sie wird verwendet, um Daten in Form von JSON-ähnlichen Dokumenten zu speichern und abzufragen. Dokumentdatenbanken ermöglichen Entwicklern die einfache Speicherung und Abfrage von Daten in einer Datenbank unter Verwendung desselben Dokumentmodellformats wie in ihrem Anwendungscode. Dokumente und Dokumentdatenbanken können entsprechend den Anforderungen der Anwendungen weiterentwickelt werden, da sie eine flexible, halbstrukturierte und hierarchische Struktur aufweisen. Für Anwendungsfälle wie Kataloge, Benutzerprofile und Content-Management-Systeme, bei denen jedes Dokument einzigartig ist und im Laufe der Zeit weiterentwickelt wird, ist das Dokumentmodell hervorragend geeignet. Dokumentdatenbanken ermöglichen eine flexible Indexierung, leistungsfähige Ad-hoc-Abfragen und die Analyse von Sammlungen von Dokumenten.
+
+Beispiele für Dokumentdatenbanken sind MongoDB und CouchDB.
+Das folgende Beispiel ist eine Beschreibung eines Buches in Form eines JSON-ähnlichen Dokuments.
+```json
+{
+  "_id" : "600c1806289947de938c68ea",
+  "name" : "John",
+  "age" : 32,
+  "gender" : "male",
+}
+```
+Der Datensatz entspricht in der Programmiersprache Python der Datenstruktur `Dictionary`.
+
+## Datenbanksprache
+###### SQL
+ist eine Datenbanksprache zur Festlegung von Datenstrukturen in relationalen Datenbanken sowie zur Bearbeitung (Einfügen, Ändern, Löschen) und zur Abfrage von darauf basierenden Datensätzen.
+- Eine Datenbankstruktur ist eine Struktur, in der die Daten in einer bestimmten Art und Weise angeordnet und verknüpft sind, um einen effizienten Datenzugriff und eine effiziente Datenverwaltung zu ermöglichen. Einfache Beispiele für Datenbankstrukturen in der Programmiersprache Python sind Listen, Tupel und Dictionaries (Wörterbücher).
+- Eine relationale Datenbank ist eine Sammlung von tabellarischen Dateien (mindestens zwei), die es Unternehmen ermöglicht, Daten zu organisieren, zu verwalten und miteinander zu verknüpfen. Im relationalen Datenbankmodell speichert jede Tabelle Informationen in Form von Spalten (Attributen) und Zeilen (Datensätzen oder Tupeln).
+
+Das folgende Beispiel ist eine SQL-Abfrage, die Daten aus einer Tabelle mit dem Namen "Autos" abruft. Die Abfrage ruft also alle Spalten ab, aber nur für Zeilen, deren Baujahr nicht vor 2018 liegt und deren Marke Audi ist.
+```sql
+  SELECT * 
+  FROM cars AS c 
+  WHERE c.baujahr > 2018 and c.marke = 'Audi';
+```
+---
+###### NoSQL (Not Only SQL) 
+ist ein Datenbanktyp, der nicht die traditionelle SQL (Structured Query Language) zur Definition und Bearbeitung der Daten verwendet. Stattdessen bietet sie eine flexiblere, skalierbare und leistungsstarke Datenspeicherlösung für die Verarbeitung großer Mengen strukturierter, halbstrukturierter und unstrukturierter Daten. NoSQL-Datenbanken zeichnen sich durch ihre Fähigkeit aus, große Datenmengen zu verarbeiten, durch ihr schemafreies oder locker strukturiertes Datenmodell und durch ihre horizontale Skalierbarkeit, d. h. sie können problemlos auf mehrere Server verteilt werden.
+
+Diese Abfrage ruft also alle Dokumente aus der Sammlung "collectionName" ab, aber nur die, bei denen das Feld "age" gleich 32 ist.
+```nosql
+> db.collectionName.find({age: {$eq: 32}});
+{ "_id" : "600c1806289947de938c68ea", "name" : "John", "age" : 32, "gender" : "male" }
+```
