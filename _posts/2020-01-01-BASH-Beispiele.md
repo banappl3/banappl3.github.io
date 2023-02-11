@@ -10,7 +10,7 @@ excerpt_separator: <!--more-->
 ---
 Bash-Skripte können für verschiedene Zwecke verwendet werden, z. B. um einen Shell-Befehl auszuführen, mehrere Befehle gleichzeitig auszuführen, administrative Aufgaben 
 anzupassen, Aufgaben zu automatisieren usw. Daher ist es für jeden Linux-Benutzer wichtig, die Grundlagen der Bash-Programmierung zu kennen. Dieser Artikel wird Ihnen 
-helfen, die Grundlagen der Bash-Programmierung zu verstehen. 
+helfen, die Grundlagen der Bash-Programmierung zu verstehen..
 
 <!--more-->
 
