@@ -11,7 +11,9 @@ excerpt_separator: <!--more-->
 
 > Photo by [Levi Stute](https://unsplash.com/@levi_stute_cinematography).
 
-Die Art und Weise, wie wir über das Programmieren denken, hat sich in den Jahren seit den ersten elektronischen Computern, die Verbindungskabel und Schalter benötigten, um Anweisungen von Menschen an Maschinen zu übermitteln, stark verändert. Wie in vielen anderen Bereichen der Gesellschaft bieten die Veränderungen in der Computertechnologie auch den Informatikern eine wachsende Anzahl von Werkzeugen und Plattformen, auf denen sie ihr Handwerk ausüben können. Fortschritte wie schnellere Prozessoren, Hochgeschwindigkeitsnetzwerke und große Speicherkapazitäten haben eine Spirale der Komplexität geschaffen, durch die sich IT Experte bewegen müssen. Bei all dieser rasanten Entwicklung sind einige Grundprinzipien konstant geblieben. Die Informatik befasst sich mit dem Einsatz von Computern zur Lösung von Problemen. Sie haben zweifellos viel Zeit damit verbracht, die Grundlagen des Problemlösens zu erlernen, und sind hoffentlich zuversichtlich, dass Sie in der Lage sind, eine Problemstellung zu erfassen und eine Lösung zu entwickeln. Sie haben auch gelernt, dass das Schreiben von Computerprogrammen oft schwierig ist. Die Komplexität von großen Problemen und die entsprechende Komplexität der Lösungen können dazu führen, dass die grundlegenden Ideen im Zusammenhang mit dem Problemlösungsprozess.
+Die Art und Weise, wie wir über das Programmieren denken, hat sich in den Jahren seit den ersten elektronischen Computern, die Verbindungskabel und Schalter benötigten, um Anweisungen von Menschen an Maschinen zu übermitteln, stark verändert. Wie in vielen anderen Bereichen der Gesellschaft bieten die Veränderungen in der Computertechnologie auch den Informatikern eine wachsende Anzahl von Werkzeugen und Plattformen, auf denen sie ihr Handwerk ausüben können. 
+<!--more-->
+Fortschritte wie schnellere Prozessoren, Hochgeschwindigkeitsnetzwerke und große Speicherkapazitäten haben eine Spirale der Komplexität geschaffen, durch die sich IT Experte bewegen müssen. Bei all dieser rasanten Entwicklung sind einige Grundprinzipien konstant geblieben. Die Informatik befasst sich mit dem Einsatz von Computern zur Lösung von Problemen. Sie haben zweifellos viel Zeit damit verbracht, die Grundlagen des Problemlösens zu erlernen, und sind hoffentlich zuversichtlich, dass Sie in der Lage sind, eine Problemstellung zu erfassen und eine Lösung zu entwickeln. Sie haben auch gelernt, dass das Schreiben von Computerprogrammen oft schwierig ist. Die Komplexität von großen Problemen und die entsprechende Komplexität der Lösungen können dazu führen, dass die grundlegenden Ideen im Zusammenhang mit dem Problemlösungsprozess.
 
 <!--more-->
 
@@ -59,32 +61,32 @@ Damit die Algorithmen korrekt funktionieren und terminieren, müssen diese besti
 Verwendung von Rekursion: 
 
   - Berechne die Summe aus einer Liste von Zahlen rekursiv, z.B. [52, 28, 95, 19, 79, 30].
-  ```python
-  def sum(lst):
-    '''
-    lst {list}: a list of numbers
-    return: the sum of the numbers
-    '''
-    if len(lst) == 0: 
-      return 0
-    elif len(lst) == 1:   # Basisfall
-      return lst[0]
-    else:
-      return lst[0] + sum(lst[1:])  # Rekursiver Aufruf
-  ```
+```python
+def sum(lst):
+  '''
+  lst {list}: a list of numbers
+  return: the sum of the numbers
+  '''
+  if len(lst) == 0: 
+    return 0
+  elif len(lst) == 1:   # Basisfall
+    return lst[0]
+  else:
+    return lst[0] + sum(lst[1:])  # Rekursiver Aufruf
+```
 
   - Berechnung von der n-ten Fibonacci-Zahl (Goldener Schnitt)
-  ```python
-  def factorial(n):
-    '''
-    n {integer}: a number
-    return: the factorial of the number n
-    '''
-    if n == 0:
-        return 1
-    else:
-        return n * factorial(n-1)   # Rekursiver Aufruf
-  ```
+```python
+def factorial(n):
+  '''
+  n {integer}: a number
+  return: the factorial of the number n
+  '''
+  if n == 0:
+      return 1
+  else:
+      return n * factorial(n-1)   # Rekursiver Aufruf
+```
 
   - Visualisierung der Rekursion unter Verwendung von Python’s turtle Grafiken
 
@@ -168,78 +170,123 @@ In diesem Beispiel durchläuft die äußere Schleife die gesamte Liste, während
 
 ---
 
-#### Insertion Sort 
+#### Insertion Sort
+ist ein einfacher Sortieralgorithmus, bei dem die Eingabeliste in zwei Teile geteilt wird: einen sortierten und einen unsortierten Teil. Der Algorithmus beginnt mit einem leeren sortierten Teil und nimmt iterativ Elemente aus dem unsortierten Teil und fügt sie an der richtigen Stelle im sortierten Teil ein. 
 
 ```python
-def bubble_sort(arr):
+def insertion_sort(arr):
     '''
     arr {list}: a list of numbers
     return: a sorted list of numbers
     '''
-    n = len(arr)
-    for i in range(n):
-        for j in range(0, n-i-1):
-            if arr[j] > arr[j+1]:
-                arr[j], arr[j+1] = arr[j+1], arr[j]
+    for i in range(1, len(arr)):
+        key = arr[i]
+        j = i-1
+        while j >= 0 and key < arr[j]:
+            arr[j + 1] = arr[j]
+            j -= 1
+        arr[j + 1] = key
     return arr
 ```
 #### Erklärung:
-In diesem Beispiel nimmt die Funktion bubble_sort ein Array arr als Eingabe, sortiert es mit dem Bubble-Sort-Algorithmus und gibt das sortierte Array zurück. Die äußere Schleife wird n-mal durchlaufen, wobei n die Länge des Arrays ist, und die innere Schleife vergleicht jedes Paar benachbarter Elemente und tauscht sie aus, wenn sie in der falschen Reihenfolge sind. Dieser Vorgang wird n-mal wiederholt, so dass alle Elemente verglichen und sortiert sind.
+In dieser Implementierung durchläuft die äußere for-Schleife len(arr) - 1 mal, wobei arr die zu sortierende Eingabeliste ist. Die innere while-Schleife findet die richtige Position für das aktuelle Element, indem größere Elemente nach rechts verschoben werden. Das Element wird dann an der richtigen Stelle eingefügt, indem der Wert in arr[j + 1] aktualisiert wird.
 
 ---
 
 #### Shell Sort 
+ist ein Sortieralgorithmus, der auf der Einfügesortierung basiert, aber mit einigen Optimierungen, die ihn für größere Arrays schneller machen. Er funktioniert, indem er das Eingabe-Array in kleinere Unter-Arrays unterteilt und dann jedes Unter-Array mit Insertion Sort sortiert.
 
 ```python
-def bubble_sort(arr):
+def shell_sort(arr):
     '''
     arr {list}: a list of numbers
     return: a sorted list of numbers
     '''
     n = len(arr)
-    for i in range(n):
-        for j in range(0, n-i-1):
-            if arr[j] > arr[j+1]:
-                arr[j], arr[j+1] = arr[j+1], arr[j]
+    gap = n//2
+    while gap > 0:
+        for i in range(gap, n):
+            temp = arr[i]
+            j = i
+            while j >= gap and arr[j-gap] > temp:
+                arr[j] = arr[j-gap]
+                j -= gap
+            arr[j] = temp
+        gap //= 2
     return arr
 ```
 #### Erklärung:
-In diesem Beispiel nimmt die Funktion bubble_sort ein Array arr als Eingabe, sortiert es mit dem Bubble-Sort-Algorithmus und gibt das sortierte Array zurück. Die äußere Schleife wird n-mal durchlaufen, wobei n die Länge des Arrays ist, und die innere Schleife vergleicht jedes Paar benachbarter Elemente und tauscht sie aus, wenn sie in der falschen Reihenfolge sind. Dieser Vorgang wird n-mal wiederholt, so dass alle Elemente verglichen und sortiert sind.
+In diesem Beispiel nimmt die Funktion shell_sort ein Eingabe-Array arr und sortiert es mit dem Shell-Sort-Algorithmus. Die Lückenvariable wird mit der halben Länge des Eingabefeldes initialisiert und schrittweise um die Hälfte reduziert, bis sie 0 erreicht. Bei jedem Schritt der Schleife wird das Eingabefeld in Unterfelder mit der angegebenen Lücke unterteilt, und jedes Unterfeld wird mit Insertion Sort sortiert. Das Ergebnis ist ein vollständig sortiertes Array.
 
 ---
 
-#### Merge Sort 
+#### Merge Sort
+ist ein Sortieralgorithmus, der zum Sortieren eines Arrays einen Divide-and-Conquer-Ansatz verwendet. Dabei wird das Eingabefeld in zwei Hälften geteilt, jede Hälfte rekursiv sortiert und dann die beiden sortierten Hälften wieder zusammengeführt.
+
 ```python
-def bubble_sort(arr):
+def merge_sort(array):
     '''
     arr {list}: a list of numbers
     return: a sorted list of numbers
     '''
-    n = len(arr)
-    for i in range(n):
-        for j in range(0, n-i-1):
-            if arr[j] > arr[j+1]:
-                arr[j], arr[j+1] = arr[j+1], arr[j]
-    return arr
+
+    if len(array) <= 1:
+        return array
+
+    mid = len(array) // 2
+    left_half = array[:mid]
+    right_half = array[mid:]
+
+    left_half = merge_sort(left_half)
+    right_half = merge_sort(right_half)
+
+    return merge(left_half, right_half)
+
+def merge(left, right):
+    result = []
+    left_index = 0
+    right_index = 0
+
+    while left_index < len(left) and right_index < len(right):
+        if left[left_index] < right[right_index]:
+            result.append(left[left_index])
+            left_index += 1
+        else:
+            result.append(right[right_index])
+            right_index += 1
+
+    while left_index < len(left):
+        result.append(left[left_index])
+        left_index += 1
+
+    while right_index < len(right):
+        result.append(right[right_index])
+        right_index += 1
+
+    return result
 ```
 #### Erklärung:
-In diesem Beispiel nimmt die Funktion bubble_sort ein Array arr als Eingabe, sortiert es mit dem Bubble-Sort-Algorithmus und gibt das sortierte Array zurück. Die äußere Schleife wird n-mal durchlaufen, wobei n die Länge des Arrays ist, und die innere Schleife vergleicht jedes Paar benachbarter Elemente und tauscht sie aus, wenn sie in der falschen Reihenfolge sind. Dieser Vorgang wird n-mal wiederholt, so dass alle Elemente verglichen und sortiert sind.
+Die Funktion merge_sort prüft zunächst, ob das Eingabefeld 1 oder weniger Elemente hat. Ist dies der Fall, ist das Array bereits sortiert und wird zurückgegeben. Ist dies nicht der Fall, wird das Array in zwei Hälften geteilt, und jede Hälfte wird mit merge_sort rekursiv sortiert. Die beiden sortierten Hälften werden dann mit der merge-Funktion zusammengeführt. Die merge-Funktion nimmt zwei sortierte Arrays und erstellt ein neues Array, das alle Elemente der beiden Eingabe-Arrays in sortierter Reihenfolge enthält.
 
 ---
 
 #### Quick Sort 
+ist ein Divide-and-Conquer-Algorithmus zum Sortieren von Arrays. Dabei wird ein Pivot-Element ausgewählt und die anderen Elemente werden in zwei Unterfelder aufgeteilt, je nachdem, ob sie kleiner oder größer als das Pivot-Element sind. Die Unterfelder werden dann rekursiv sortiert.
+
 ```python
-def bubble_sort(arr):
+def quick_sort(arr):
     '''
     arr {list}: a list of numbers
     return: a sorted list of numbers
     '''
-    n = len(arr)
-    for i in range(n):
-        for j in range(0, n-i-1):
-            if arr[j] > arr[j+1]:
-                arr[j], arr[j+1] = arr[j+1], arr[j]
-    return arr
+
+    if len(arr) <= 1:
+        return arr
+    else:
+        pivot = arr[0]
+        less = [x for x in arr[1:] if x <= pivot]
+        greater = [x for x in arr[1:] if x > pivot]
+        return quick_sort(less) + [pivot] + quick_sort(greater)
 ```
 #### Erklärung:
-In diesem Beispiel nimmt die Funktion bubble_sort ein Array arr als Eingabe, sortiert es mit dem Bubble-Sort-Algorithmus und gibt das sortierte Array zurück. Die äußere Schleife wird n-mal durchlaufen, wobei n die Länge des Arrays ist, und die innere Schleife vergleicht jedes Paar benachbarter Elemente und tauscht sie aus, wenn sie in der falschen Reihenfolge sind. Dieser Vorgang wird n-mal wiederholt, so dass alle Elemente verglichen und sortiert sind.
+In dieser Implementierung nimmt die Funktion quick_sort ein Array als Eingabe und gibt eine sortierte Version des Arrays zurück. Der Basisfall ist, wenn das Array die Länge 0 oder 1 hat, in diesem Fall wird das Array so zurückgegeben, wie es ist. In allen anderen Fällen wird das erste Element des Arrays als Drehpunkt ausgewählt, und die anderen Elemente werden in zwei Unter-Arrays aufgeteilt, je nachdem, ob sie kleiner oder größer als der Drehpunkt sind. Die Unterfelder werden dann rekursiv mit der gleichen quick_sort-Funktion sortiert. Das Endergebnis ergibt sich aus der Verkettung der sortierten Unterfelder mit dem Pivot.
