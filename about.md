@@ -5,8 +5,8 @@ permalink: /about/
 ---
 # Warum dieser Blog?
 
-Hi, mein Name ist Yongguang und ich entwickle gerne Web-Anwendungen und Software zur Datenauswertung und habe mehrere Jahre als Daten- und Risikoanalyst in der Versicherungsbranche gearbeitet.
+Hi, ich heiße Yongguang, bin studierter Mathematiker und habe mehrere Jahre als Daten- und Risikoanalyst in der Versicherungsbranche gearbeitet.
 
-Seit ich in der Web- und Softwareentwicklung tätig bin, habe ich einige nützliche Dinge gelernt, und da mein Gedächtnis nicht alles merken kann, habe ich mich entschlossen, diese in einem Blog niederzuschreiben und allen zugänglich zu machen.
+Auf dieser Seite finden Sie Artikel und Tutorials zur Datenanalyse (Python und R), zu Ansätzen und Methoden der Datenanalyse und zu Themen rund um Programmierung, Automatisierung mit Python und Datenbanken. Außerdem werden Themen aus der klassischen und agilen Projektmanagementwelt behandelt.
 
 Ich hoffe, es gefällt Ihnen!
