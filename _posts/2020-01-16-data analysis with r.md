@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Datenanalyse mit r
-date: 2020-02-01
+title: Datenanalyse mit R
+date: 2020-01-16
 last_modified_at: 2023-02-11
 cover_image: 2021-05-03-feature.jpg
 author: Yongguang Lin
