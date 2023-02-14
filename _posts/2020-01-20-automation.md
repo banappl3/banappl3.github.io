@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Datenanalyse mit Python
+title: Automatisierung mit Python
 date: 2020-01-20
 last_modified_at: 2023-02-11
 cover_image: 2021-05-03-feature.jpg
@@ -11,10 +11,9 @@ excerpt_separator: <!--more-->
 
 > Photo by [Levi Stute](https://unsplash.com/@levi_stute_cinematography).
 
-Datenanalyse ist der Prozess der Untersuchung und Modellierung von Daten, um aussagekräftige Erkenntnisse und Informationen zu gewinnen. Python ist aufgrund seiner leistungsstarken und benutzerfreundlichen Bibliotheken und Werkzeuge eine beliebte Programmiersprache für die Datenanalyse.
-<!--more-->
 
 Python ist eine vielseitige Sprache, die häufig für Automatisierungsaufgaben verwendet wird. Hier sind einige beliebte Beispiele für Automatisierungsaufgaben, die mit Python durchgeführt werden können:
+<!--more-->
 
 - Web Scraping: Mit Python lassen sich Daten aus Websites extrahieren, die dann für verschiedene Zwecke wie Datenanalyse, Datenvisualisierung usw. verwendet werden können.
 
