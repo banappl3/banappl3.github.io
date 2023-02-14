@@ -3,7 +3,6 @@ layout: page
 title: About
 permalink: /about/
 ---
-# Warum dieser Blog?
 
 Hi, ich heiße Yongguang, bin studierter Mathematiker und habe mehrere Jahre als Daten- und Risikoanalyst in der Versicherungsbranche gearbeitet.
 
